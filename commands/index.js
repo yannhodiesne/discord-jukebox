@@ -13,17 +13,21 @@ const link = require('./link');
 const playshuffle = require('./playshuffle');
 
 // Commande help
-const { line, info } = require('../utils/message');
+const { message, line, info } = require('../utils/message');
 const { prefix } = require('../config.json');
 
 const help = {
     help: 'Affiche la liste des commandes disponibles',
-    run: (msg) => {
+    run: async (msg) => {
         let res = info('Liste des commandes');
 
         Object.keys(exports.commands).forEach(e => res += line(`- \`${prefix}${e}\` : ${exports.commands[e].help}`));
 
-        return msg.channel.send(res);
+        res += message('open_file_folder', 'https://github.com/yannhodiesne/discord-jukebox');
+
+        const sent = await msg.channel.send(res);
+        sent.suppressEmbeds(true);
+        return;
     }
 };
 
