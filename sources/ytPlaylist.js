@@ -15,7 +15,7 @@ exports.getSongs = async input => {
 
         return playlist.items.filter(e => e.duration !== null).map(e => new Song(
             e.title,
-            e.url_simple,
+            e.url,
             (parseInt(e.duration.split(':')[0]) * 60) + parseInt(e.duration.split(':')[1]),
             e.author.name
         ));
