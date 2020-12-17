@@ -1,4 +1,4 @@
-const ytdl = require('ytdl-core-discord');
+const ytdl = require('discord-ytdl-core');
 const ytpl = require('ytpl');
 
 const Song = require('../models/song');
@@ -25,6 +25,6 @@ exports.getSongs = async input => {
     }
 };
 
-exports.getStream = async song => await ytdl(song.url, { quality: 'highestaudio', highWaterMark: 1<<25 });
+exports.getStream = async song => await ytdl(song.url, { opusEncoded: true, quality: 'highestaudio', highWaterMark: 1<<25 });
 
 exports.streamOptions = { type: 'opus' };
