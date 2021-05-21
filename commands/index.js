@@ -11,6 +11,7 @@ const nowPlaying = require('./nowplaying');
 const shuffle = require('./shuffle');
 const link = require('./link');
 const playshuffle = require('./playshuffle');
+const restart = require('./restart');
 
 // Commande help
 const { message, line, info } = require('../utils/message');
@@ -48,4 +49,5 @@ exports.commands = {
     link: link,
     shuffle: shuffle,
     playshuffle: playshuffle,
+    restart: restart,
 };
